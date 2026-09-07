@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=70"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "grc-automation-cyber-risk-quantification-platform"
+version = "0.1.0"
+description = "Evidence-backed GRC automation, framework cross-mapping, cyber-risk quantification, and board economics"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Ahmed Hassan" }]
+keywords = ["grc automation", "continuous compliance", "cyber risk quantification", "ai governance", "board reporting"]
+
+[project.scripts]
+grc-decisiongraph = "decisiongraph.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["decisiongraph*"]

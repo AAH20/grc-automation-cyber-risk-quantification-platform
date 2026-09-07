@@ -1,0 +1,9 @@
+{
+  "mapping_version": "2026.09",
+  "notice": "Representative controlled mappings only; production mappings require source citations and reviewer approval.",
+  "mappings": [
+    {"source": "SOC2:CC6.1", "target": "ISO27001:A.5.15", "strength": "SUBSTANTIAL", "coverage_pct": 85, "rationale": "Both address access-control policy and enforcement but differ in assessment context.", "reviewer": "fixture-reviewer"},
+    {"source": "SOC2:CC7.2", "target": "ISO27001:A.8.16", "strength": "SUBSTANTIAL", "coverage_pct": 90, "rationale": "Monitoring objectives substantially overlap; evidence expectations remain framework-specific.", "reviewer": "fixture-reviewer"},
+    {"source": "ISO42001:A.6.2.6", "target": "NIST-AI-RMF:MEASURE-2", "strength": "PARTIAL", "coverage_pct": 68, "rationale": "Both require AI performance evaluation, while scope and lifecycle language differ.", "reviewer": "fixture-reviewer"}
+  ]
+}

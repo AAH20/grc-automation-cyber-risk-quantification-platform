@@ -1,0 +1,21 @@
+{
+  "name": "GRC DecisionGraph",
+  "schema_version": "1.0",
+  "evidence_boundary": "Controlled synthetic reference data; no external organization is assessed.",
+  "hosted_plane": {
+    "target": "a2zsoc.com",
+    "status": "integration contract defined; production domain deployment not included in this demo"
+  },
+  "framework_integration": {
+    "provider": "OSS CISO Assistant",
+    "capacity": "150+ framework catalog integration-ready",
+    "content_redistributed": false,
+    "cross_mapping": "directional, versioned, reviewed",
+    "evidence_qualification": ["provenance", "integrity", "freshness", "scope", "relevance"]
+  },
+  "artifacts": {
+    "economics": "/api/v1/economics.json",
+    "risk": "/api/v1/risk.json",
+    "framework_sample": "/api/v1/frameworks.json"
+  }
+}

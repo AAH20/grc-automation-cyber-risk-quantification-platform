@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "product": "GRC DecisionGraph",
+  "hosted_plane": {
+    "target_origin": "https://a2zsoc.com",
+    "status": "integration-ready reference contract",
+    "production_domain_claimed": false
+  },
+  "framework_integration": {
+    "provider": "OSS CISO Assistant",
+    "capacity": "150+ framework catalog integration-ready",
+    "catalog_count_is_dynamic": true,
+    "framework_content_redistributed": false
+  },
+  "cross_mapping": {
+    "directional": true,
+    "transitive_inference": false,
+    "strengths": ["EXACT", "SUBSTANTIAL", "PARTIAL", "RELATED"]
+  },
+  "evidence_qualification": {
+    "gates": ["provenance", "integrity", "freshness", "scope", "relevance"],
+    "verdicts": ["PASS", "FAIL", "UNKNOWN"],
+    "unknown_is_pass": false
+  },
+  "artifacts": {
+    "economics": "/api/v1/economics.json",
+    "risk": "/api/v1/risk.json",
+    "framework_sample": "/api/v1/frameworks.json"
+  }
+}

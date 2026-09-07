@@ -1,0 +1,13 @@
+name: GRC DecisionGraph validation
+description: Validate DecisionGraph tests and generate reconciled economics and risk artifacts.
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: python -m unittest discover -s tests -v
+    - shell: bash
+      run: python -m decisiongraph.cli economics catalog/economics.json --output outputs/economics.json
+    - shell: bash
+      run: python -m decisiongraph.cli risk catalog/risk.json --output outputs/risk.json
+    - shell: bash
+      run: python -m decisiongraph.cli import-ciso-assistant catalog/ciso-assistant-sample.json --output outputs/frameworks.json

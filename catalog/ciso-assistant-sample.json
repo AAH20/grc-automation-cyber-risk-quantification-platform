@@ -1,0 +1,7 @@
+{
+  "frameworks": [
+    {"urn": "urn:intuitem:risk:library:soc2", "name": "SOC 2", "version": "2017"},
+    {"urn": "urn:intuitem:risk:library:iso27001", "name": "ISO/IEC 27001", "version": "2022"},
+    {"urn": "urn:intuitem:risk:library:iso42001", "name": "ISO/IEC 42001", "version": "2023"}
+  ]
+}

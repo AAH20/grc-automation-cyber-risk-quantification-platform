@@ -1,0 +1,24 @@
+{
+  "framework_count": 3,
+  "frameworks": [
+    {
+      "external_id": "urn:intuitem:risk:library:soc2",
+      "name": "SOC 2",
+      "provider": "ciso-assistant",
+      "version": "2017"
+    },
+    {
+      "external_id": "urn:intuitem:risk:library:iso27001",
+      "name": "ISO/IEC 27001",
+      "provider": "ciso-assistant",
+      "version": "2022"
+    },
+    {
+      "external_id": "urn:intuitem:risk:library:iso42001",
+      "name": "ISO/IEC 42001",
+      "provider": "ciso-assistant",
+      "version": "2023"
+    }
+  ],
+  "provider": "ciso-assistant"
+}

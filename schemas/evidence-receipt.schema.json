@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://a2zsoc.com/schemas/grc-decisiongraph/evidence-receipt-1.0.json",
+  "title": "GRC DecisionGraph evidence receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["evidence_id", "evidence_class", "resource", "collector", "observed_at", "valid_until", "digest", "scope", "source_uri", "statement"],
+  "properties": {
+    "evidence_id": {"type": "string", "minLength": 1},
+    "evidence_class": {"enum": ["OBSERVED", "DECLARED", "EXERCISED", "ATTESTED", "INFERRED", "UNAVAILABLE"]},
+    "resource": {"type": "string", "minLength": 1},
+    "collector": {"type": "string"},
+    "observed_at": {"type": "string", "format": "date-time"},
+    "valid_until": {"type": "string", "format": "date-time"},
+    "digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "scope": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "source_uri": {"type": "string"},
+    "statement": {"type": "string"}
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "baseline_hours": 4.0,
+  "current_hours": 1.25,
+  "annual_volume": 360,
+  "loaded_hourly_rate": 125,
+  "annual_platform_cost": 96000,
+  "implementation_cost": 120000,
+  "value_entries": [
+    {"category": "CONFIRMED_DIRECT_REVENUE", "amount": 420000, "confirmed": true, "reference": "synthetic-priority-contract-001"},
+    {"category": "VALIDATED_LOSS_REDUCTION", "amount": 180000, "confirmed": true, "reference": "synthetic-risk-R014"},
+    {"category": "CONTRIBUTORY_REVENUE", "amount": 900000, "confirmed": false, "reference": "synthetic-opportunity-portfolio"},
+    {"category": "CAPACITY_ONLY", "amount": 3200000, "confirmed": false, "reference": "synthetic-blocked-pipeline"}
+  ]
+}

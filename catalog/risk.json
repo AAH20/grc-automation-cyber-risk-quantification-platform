@@ -1,0 +1,6 @@
+{
+  "frequency": {"minimum": 0.05, "mode": 0.18, "maximum": 0.55},
+  "magnitude": {"minimum": 500000, "mode": 1800000, "maximum": 6500000},
+  "iterations": 20000,
+  "seed": 42
+}
