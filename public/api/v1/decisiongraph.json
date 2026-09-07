@@ -25,6 +25,8 @@
   "artifacts": {
     "economics": "/api/v1/economics.json",
     "risk": "/api/v1/risk.json",
-    "framework_sample": "/api/v1/frameworks.json"
+    "framework_sample": "/api/v1/frameworks.json",
+    "board_pack": "/api/v1/board-pack.json",
+    "priority_contract": "/api/v1/priority-contract.json"
   }
 }

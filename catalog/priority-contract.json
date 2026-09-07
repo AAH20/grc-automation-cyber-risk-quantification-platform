@@ -1,0 +1,11 @@
+{
+  "opportunity_id": "OPP-2026-104",
+  "contract_value": 2400000,
+  "grc_blocker": "Customer requires evidence of scoped privileged access and audit reconstruction",
+  "opened_at": "2026-09-01T00:00:00Z",
+  "resolved_at": "2026-09-18T00:00:00Z",
+  "commercial_owner_confirmed": true,
+  "automation_contribution_pct": 35,
+  "attribution": "DIRECT",
+  "finance_approved_attributable_value": 420000
+}

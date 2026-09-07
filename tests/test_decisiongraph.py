@@ -6,12 +6,14 @@ from pathlib import Path
 
 from decisiongraph.ciso_assistant import import_framework_catalog
 from decisiongraph.adapters import aws_privileged_mfa_receipt, kubernetes_audit_receipt, log_query_receipt
+from decisiongraph.board import build_board_pack, render_board_markdown
 from decisiongraph.crossmap import CrossMapRegistry
 from decisiongraph.economics import calculate_economics
 from decisiongraph.engine import DecisionGraph
 from decisiongraph.evidence import evidence_digest, qualify_evidence
 from decisiongraph.models import CrossMapping, EvidenceClass, EvidenceReceipt, MappingStrength, Qualification, Verdict
 from decisiongraph.risk import RiskDistribution, simulate_loss
+from decisiongraph.revenue import Attribution, Opportunity, evaluate_opportunity
 
 
 NOW = datetime(2026, 9, 7, tzinfo=timezone.utc)
@@ -194,6 +196,73 @@ class AdapterTests(unittest.TestCase):
     def test_empty_log_query_rejected(self):
         with self.assertRaises(ValueError):
             log_query_receipt(backend="elastic", endpoint_alias="prod", query="", result=[], observed_at="2026-09-07T00:00:00Z", valid_until="2026-09-08T00:00:00Z")
+
+
+class BoardPackTests(unittest.TestCase):
+    def setUp(self):
+        self.payload = json.loads(Path("catalog/board-decision.json").read_text())
+
+    def test_board_pack_is_deterministic(self):
+        one = build_board_pack(self.payload, generated_at="2026-09-07T00:00:00Z")
+        two = build_board_pack(self.payload, generated_at="2026-09-08T00:00:00Z")
+        self.assertEqual(one["pack_sha256"], two["pack_sha256"])
+
+    def test_board_pack_requires_alternatives(self):
+        payload = dict(self.payload); payload["options"] = payload["options"][:1]
+        with self.assertRaises(ValueError): build_board_pack(payload)
+
+    def test_recommendation_must_exist(self):
+        payload = dict(self.payload); payload["recommended_option"] = "Missing"
+        with self.assertRaises(ValueError): build_board_pack(payload)
+
+    def test_board_pack_requires_evidence(self):
+        payload = dict(self.payload); payload["evidence_ids"] = []
+        with self.assertRaises(ValueError): build_board_pack(payload)
+
+    def test_markdown_contains_decision_and_receipt(self):
+        markdown = render_board_markdown(build_board_pack(self.payload, generated_at="2026-09-07T00:00:00Z"))
+        self.assertIn("Targeted remediation", markdown)
+        self.assertIn("Receipt:", markdown)
+
+
+class RevenueTests(unittest.TestCase):
+    def opportunity(self, **changes):
+        values = {"opportunity_id": "OPP-1", "contract_value": 2400000, "grc_blocker": "Evidence gap", "opened_at": "2026-09-01", "resolved_at": "2026-09-18", "commercial_owner_confirmed": True, "automation_contribution_pct": 35, "attribution": Attribution.DIRECT, "finance_approved_attributable_value": 420000}
+        values.update(changes)
+        return Opportunity(**values)
+
+    def test_confirmed_resolved_direct_value_recognized(self):
+        result = evaluate_opportunity(self.opportunity())
+        self.assertEqual(result["confirmed_contract_value_unblocked"], 2400000)
+        self.assertEqual(result["recognized_value_for_roi"], 420000)
+        self.assertTrue(result["included_in_recognized_value"])
+
+    def test_unconfirmed_direct_value_excluded(self):
+        result = evaluate_opportunity(self.opportunity(commercial_owner_confirmed=False))
+        self.assertEqual(result["confirmed_contract_value_unblocked"], 0)
+        self.assertEqual(result["recognized_value_for_roi"], 0)
+
+    def test_unresolved_direct_value_excluded(self):
+        result = evaluate_opportunity(self.opportunity(resolved_at=None))
+        self.assertEqual(result["confirmed_contract_value_unblocked"], 0)
+
+    def test_contributory_value_not_recognized(self):
+        result = evaluate_opportunity(self.opportunity(attribution=Attribution.CONTRIBUTORY))
+        self.assertEqual(result["confirmed_contract_value_unblocked"], 0)
+        self.assertEqual(result["modeled_weighted_influence"], 840000)
+
+    def test_capacity_has_no_weighted_revenue(self):
+        result = evaluate_opportunity(self.opportunity(attribution=Attribution.CAPACITY))
+        self.assertEqual(result["modeled_weighted_influence"], 0)
+
+    def test_invalid_contribution_rejected(self):
+        with self.assertRaises(ValueError): evaluate_opportunity(self.opportunity(automation_contribution_pct=101))
+
+    def test_missing_blocker_rejected(self):
+        with self.assertRaises(ValueError): evaluate_opportunity(self.opportunity(grc_blocker=""))
+
+    def test_finance_value_cannot_exceed_contract(self):
+        with self.assertRaises(ValueError): evaluate_opportunity(self.opportunity(finance_approved_attributable_value=2400001))
 
 
 if __name__ == "__main__": unittest.main()

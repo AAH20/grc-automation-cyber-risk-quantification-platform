@@ -11,3 +11,7 @@ runs:
       run: python -m decisiongraph.cli risk catalog/risk.json --output outputs/risk.json
     - shell: bash
       run: python -m decisiongraph.cli import-ciso-assistant catalog/ciso-assistant-sample.json --output outputs/frameworks.json
+    - shell: bash
+      run: python -m decisiongraph.cli contract catalog/priority-contract.json --output outputs/priority-contract.json
+    - shell: bash
+      run: python -m decisiongraph.cli board-pack catalog/board-decision.json --output outputs/board-pack.json --markdown outputs/board-pack.md

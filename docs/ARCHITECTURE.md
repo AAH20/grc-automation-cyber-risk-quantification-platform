@@ -12,6 +12,12 @@
 8. **Governed agents** propose cited analysis, then pass deterministic evaluation and human approval gates.
 9. **Experience plane** prepares views for operators, control owners, auditors, customers, executives, and boards.
 
+## Decision compilers
+
+The board compiler converts a versioned decision record into JSON and Markdown. It requires complete alternatives, evidence lineage, ownership, a decision deadline, and a recommendation that references a defined alternative. Its SHA-256 receipt is calculated from canonical decision inputs rather than presentation metadata.
+
+The commercial attribution compiler keeps four distinct classes: DIRECT, CONTRIBUTORY, CAPACITY, and EXCLUDED. Only a resolved, commercial-owner-confirmed DIRECT blocker produces recognized direct revenue.
+
 ## Hosted plane
 
 The intended `a2zsoc.com` hosted plane provides qualification and cross-mapping APIs while allowing deployments to keep raw evidence inside their trust boundary. Production architecture should support:

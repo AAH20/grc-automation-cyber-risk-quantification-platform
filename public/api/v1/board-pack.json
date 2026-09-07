@@ -1,0 +1,42 @@
+{
+  "business_objective": "Reduce material access risk without delaying priority delivery",
+  "current_p50_exposure": 1840000,
+  "decision_due": "2026-10-01",
+  "decision_id": "BD-2026-014",
+  "decision_owner": "CISO",
+  "evidence_boundary": "Decision support only; accountable owner approval is required.",
+  "evidence_ids": [
+    "aws-iam-mfa-123",
+    "k8s-audit-prod",
+    "log-query-elastic-security"
+  ],
+  "generated_at": "2026-09-07T04:53:51.672824+00:00",
+  "options": [
+    {
+      "business_impact": "Preserves capacity but remains above tolerance",
+      "cost": 0,
+      "name": "Accept current risk",
+      "p50_residual_exposure": 1840000,
+      "time_days": 0
+    },
+    {
+      "business_impact": "Best risk-adjusted return",
+      "cost": 180000,
+      "name": "Targeted remediation",
+      "p50_residual_exposure": 540000,
+      "time_days": 60
+    },
+    {
+      "business_impact": "Lowest exposure with roadmap delay",
+      "cost": 720000,
+      "name": "Full redesign",
+      "p50_residual_exposure": 210000,
+      "time_days": 270
+    }
+  ],
+  "pack_sha256": "eb16aba3251fde92fea4ed4077f524b0ed23600124e0156310b78f998ec5c58f",
+  "recommended_option": "Targeted remediation",
+  "risk_tolerance": 750000,
+  "schema_version": "1.0",
+  "title": "Privileged production access remediation"
+}

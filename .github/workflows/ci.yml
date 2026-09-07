@@ -22,6 +22,8 @@ jobs:
       - run: python -m decisiongraph.cli economics catalog/economics.json --output outputs/economics.json
       - run: python -m decisiongraph.cli risk catalog/risk.json --output outputs/risk.json
       - run: python -m decisiongraph.cli import-ciso-assistant catalog/ciso-assistant-sample.json --output outputs/frameworks.json
+      - run: python -m decisiongraph.cli contract catalog/priority-contract.json --output outputs/priority-contract.json
+      - run: python -m decisiongraph.cli board-pack catalog/board-decision.json --output outputs/board-pack.json --markdown outputs/board-pack.md
 
   web:
     runs-on: ubuntu-latest

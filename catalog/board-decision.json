@@ -1,0 +1,16 @@
+{
+  "decision_id": "BD-2026-014",
+  "title": "Privileged production access remediation",
+  "business_objective": "Reduce material access risk without delaying priority delivery",
+  "current_p50_exposure": 1840000,
+  "risk_tolerance": 750000,
+  "options": [
+    {"name": "Accept current risk", "cost": 0, "p50_residual_exposure": 1840000, "time_days": 0, "business_impact": "Preserves capacity but remains above tolerance"},
+    {"name": "Targeted remediation", "cost": 180000, "p50_residual_exposure": 540000, "time_days": 60, "business_impact": "Best risk-adjusted return"},
+    {"name": "Full redesign", "cost": 720000, "p50_residual_exposure": 210000, "time_days": 270, "business_impact": "Lowest exposure with roadmap delay"}
+  ],
+  "recommended_option": "Targeted remediation",
+  "evidence_ids": ["aws-iam-mfa-123", "k8s-audit-prod", "log-query-elastic-security"],
+  "decision_owner": "CISO",
+  "decision_due": "2026-10-01"
+}

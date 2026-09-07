@@ -1,0 +1,16 @@
+{
+  "attribution": "DIRECT",
+  "automation_contribution_pct": 35,
+  "boundary": "Confirmed contract value unblocked, modeled influence, and Finance-approved ROI value are separate measures.",
+  "commercial_owner_confirmed": true,
+  "confirmed_contract_value_unblocked": 2400000,
+  "contract_value": 2400000,
+  "finance_approved_attributable_value": 420000,
+  "grc_blocker": "Customer requires evidence of scoped privileged access and audit reconstruction",
+  "included_in_recognized_value": true,
+  "modeled_weighted_influence": 840000.0,
+  "opened_at": "2026-09-01T00:00:00Z",
+  "opportunity_id": "OPP-2026-104",
+  "recognized_value_for_roi": 420000,
+  "resolved_at": "2026-09-18T00:00:00Z"
+}

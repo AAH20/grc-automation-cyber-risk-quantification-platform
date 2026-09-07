@@ -108,6 +108,8 @@ python3 -m venv .venv
 .venv/bin/grc-decisiongraph economics catalog/economics.json --output outputs/economics.json
 .venv/bin/grc-decisiongraph risk catalog/risk.json --output outputs/risk.json
 .venv/bin/grc-decisiongraph import-ciso-assistant catalog/ciso-assistant-sample.json --output outputs/frameworks.json
+.venv/bin/grc-decisiongraph contract catalog/priority-contract.json --output outputs/priority-contract.json
+.venv/bin/grc-decisiongraph board-pack catalog/board-decision.json --output outputs/board-pack.json --markdown outputs/board-pack.md
 python3 -m unittest discover -s tests -v
 ```
 
@@ -160,6 +162,18 @@ npm run dev
 - realized benefit against the approved business case.
 
 See [KPI and economics specification](docs/KPIS_AND_UNIT_ECONOMICS.md), [framework integration contract](docs/CISO_ASSISTANT_150_FRAMEWORK_INTEGRATION.md), and [architecture](docs/ARCHITECTURE.md).
+
+## Executable board and priority-contract gates
+
+The board-pack compiler rejects decisions without at least two complete alternatives, an explicit recommended option, accountable ownership, a deadline, and evidence lineage. Its deterministic receipt excludes the generation timestamp, so the same decision input can be reproduced independently.
+
+The priority-contract ledger recognizes direct revenue only when all three gates pass:
+
+1. the opportunity has a documented GRC blocker;
+2. the blocker is resolved; and
+3. the commercial owner confirms direct attribution.
+
+The ledger then separates the full confirmed contract value unblocked, modeled weighted influence, and the narrower Finance-approved amount eligible for ROI. Contributory impact can be modeled for decision support, but it never enters recognized direct revenue. Capacity is never treated as revenue.
 
 ## Safety boundary
 
