@@ -6,7 +6,7 @@ const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://decisiongraph.a2zsoc.com'),
+  metadataBase: new URL('https://grc-decisiongraph.a2zsoc.com'),
   title: 'GRC DecisionGraph — Cyber Risk & Compliance Economics',
   description: 'Evidence-backed GRC automation, continuous control assurance, cyber-risk quantification, framework cross-mapping, and board decision economics.',
   alternates: { canonical: '/' },

@@ -3,7 +3,7 @@
 [![CI](https://github.com/AAH20/grc-automation-cyber-risk-quantification-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/AAH20/grc-automation-cyber-risk-quantification-platform/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
-**Live decision surface:** [decisiongraph.a2zsoc.com](https://decisiongraph.a2zsoc.com)
+**Live decision surface:** [grc-decisiongraph.a2zsoc.com](https://grc-decisiongraph.a2zsoc.com)
 
 **Evidence-backed GRC automation, continuous compliance, cyber-risk quantification, framework cross-mapping, AI governance, board reporting, audit readiness, and revenue assurance.**
 
