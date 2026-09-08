@@ -3,6 +3,8 @@
 [![CI](https://github.com/AAH20/grc-automation-cyber-risk-quantification-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/AAH20/grc-automation-cyber-risk-quantification-platform/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
+**Live decision surface:** [decisiongraph.a2zsoc.com](https://decisiongraph.a2zsoc.com)
+
 **Evidence-backed GRC automation, continuous compliance, cyber-risk quantification, framework cross-mapping, AI governance, board reporting, audit readiness, and revenue assurance.**
 
 GRC DecisionGraph connects technical evidence to control conclusions, financial exposure, unit economics, priority-contract blockers, and decision-ready board narratives. It is not another checklist or opaque compliance score.

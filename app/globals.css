@@ -133,6 +133,27 @@ body {
   }
 }
 
+/* A2Z SOC product-family tokens */
+:root, .dark {
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --card: #111827;
+  --card-foreground: #f8fafc;
+  --popover: #111827;
+  --popover-foreground: #f8fafc;
+  --primary: #0369a1;
+  --primary-foreground: #ffffff;
+  --secondary: #172033;
+  --secondary-foreground: #e2e8f0;
+  --muted: #172033;
+  --muted-foreground: #94a3b8;
+  --accent: #2e1f59;
+  --accent-foreground: #ede9fe;
+  --border: #222f44;
+  --input: #2b3a52;
+  --ring: #38bdf8;
+}
+
 @layer components {
   .metric-card {
     @apply rounded-xl border border-white/10 bg-white/[0.035] p-5 shadow-[0_18px_60px_rgb(0_0_0/18%)];
@@ -147,7 +168,7 @@ body {
   }
 
   .section-kicker {
-    @apply font-mono text-xs uppercase tracking-[0.16em] text-emerald-300;
+    @apply font-mono text-xs uppercase tracking-[0.16em] text-sky-300;
   }
 
   .label {
@@ -155,10 +176,10 @@ body {
   }
 
   .risk-row {
-    @apply flex w-full items-center justify-between gap-4 rounded-lg border border-transparent px-3 py-4 transition-colors hover:bg-white/[0.04] focus-visible:outline-2 focus-visible:outline-emerald-300;
+    @apply flex w-full items-center justify-between gap-4 rounded-lg border border-transparent px-3 py-4 transition-colors hover:bg-white/[0.04] focus-visible:outline-2 focus-visible:outline-sky-300;
   }
 
   .risk-row-active {
-    @apply border-emerald-300/20 bg-emerald-300/[0.07];
+    @apply border-sky-300/20 bg-sky-300/[0.07];
   }
 }
